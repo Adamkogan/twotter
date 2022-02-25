@@ -1,15 +1,39 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to TWOTTER"/>
+<div id="app">
+  {{ user.username }} - {{fullName}}
+  <strong>
+    
+  </strong>
+</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      followers: 0,
+      user: {
+        id:1,
+        username: '@_adamKogan',
+        firstName: 'Adam',
+        lastName: 'Kogan',
+        email: 'adam.kogan7@gmail.com',
+        isAdmin:true
+      }
+    }
+  },
+  computed: {
+    fullName() {
+      return `${this.user.firstName} ${this.user.lastName}`;
+    }
+  },
+  methods: {
+    followUser() {
+      this.followers++
+    }
   }
 }
 </script>
